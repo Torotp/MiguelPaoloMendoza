@@ -7,195 +7,394 @@
   <meta name="description" content="Get local, reliable insurance help from Miguel Mendoza. Fast quotes for auto, home, life, and business insurance in CA, OR, and WA." />
   <style>
     :root {
-      --blue:#0b3f93; --blue-dark:#072b66; --blue-soft:#eef4ff;
-      --red:#d7193f; --red-soft:#fff2f5;
-      --gold:#ffd66b; --gold-soft:#fff8df;
-      --bg:#ffffff; --muted:#5d6b7b; --border:#e2e8f0;
+      --blue:#0b3f93;
+      --blue-dark:#072b66;
+      --blue-soft:#eef4ff;
+      --blue-light:#d9e5f7;
+      --red:#d7193f;
+      --red-dark:#b91434;
+      --red-soft:#fff2f5;
+      --gold:#ffd66b;
+      --gold-soft:#fff8df;
+      --bg:#ffffff;
+      --text:#1f2933;
+      --muted:#5d6b7b;
+      --border:#e2e8f0;
       --shadow:0 12px 30px rgba(7,43,102,.12);
-      --radius:16px; --max:1100px;
+      --radius:16px;
+      --max:1120px;
     }
+
     *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#1f2933;background:#fff}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff;line-height:1.6}
     a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
     .container{width:min(var(--max),calc(100% - 2rem));margin:auto}
 
-    .topbar{background:var(--blue-dark);color:#fff;text-align:center;padding:.6rem;font-size:.9rem}
+    .topbar{background:var(--blue-dark);color:#fff;text-align:center;padding:.65rem;font-size:.92rem}
+    .topbar a{font-weight:800}
 
-    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:10}
-    .nav{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0}
-    .logo{display:flex;align-items:center;gap:.7rem}
-    .logo img{width:80px}
-    .btn{padding:.8rem 1.2rem;border-radius:999px;font-weight:700;display:inline-block}
+    header{position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:10}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.9rem 0}
+    .logo{display:flex;align-items:center;gap:.75rem}
+    .logo img{width:80px;height:auto;object-fit:contain}
+    .brand strong{display:block;color:var(--blue-dark);line-height:1.1}
+    .brand span{display:block;font-size:.9rem;color:var(--muted);margin-top:.15rem}
+    .nav-links{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;justify-content:flex-end}
+    .nav-links a{font-weight:700;color:var(--blue-dark)}
+
+    .btn{padding:.85rem 1.2rem;border-radius:999px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;border:2px solid transparent;text-align:center;transition:.2s ease;cursor:pointer}
+    .btn:hover{transform:translateY(-1px)}
     .btn-primary{background:var(--blue);color:#fff}
-    .btn-quote{
-      background:var(--red);
-      color:#fff;
-      border:2px solid var(--red);
-      box-shadow:0 8px 18px rgba(215,25,63,.22);
-    }
-    .btn-quote:hover{background:#b91434;border-color:#b91434}
+    .btn-secondary{background:#fff;color:var(--blue);border-color:var(--blue)}
+    .btn-quote{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 8px 18px rgba(215,25,63,.22)}
+    .btn-quote:hover{background:var(--red-dark);border-color:var(--red-dark)}
 
     .hero{
-      padding:4rem 0;
+      padding:4.4rem 0 4rem;
       background:
         radial-gradient(circle at 85% 15%, rgba(215,25,63,.07), transparent 30%),
         radial-gradient(circle at 10% 10%, rgba(11,63,147,.12), transparent 35%),
         linear-gradient(135deg,#eef4ff 0%,#ffffff 55%,#f8fbff 100%);
     }
-    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
-    .hero h1{font-size:clamp(2rem,4vw,3rem);margin:0 0 1rem;color:var(--blue-dark)}
-    .hero p{color:#314355;margin-bottom:1.1rem;font-size:1.05rem;line-height:1.6}
-    .hero .proof-line{
-      display:inline-block;
-      background:linear-gradient(135deg,var(--blue-soft),#fff);
-      border:1px solid var(--border);
-      border-left:5px solid var(--blue);
-      padding:.75rem 1rem;
-      border-radius:12px;
-      font-weight:700;
-      color:var(--blue-dark);
-      margin-bottom:1.2rem;
-    }
-    .hero-actions{display:flex;gap:.7rem;flex-wrap:wrap}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center}
+    .eyebrow{display:inline-block;background:#fff;border:1px solid var(--blue-light);color:var(--blue);border-left:5px solid var(--blue);padding:.65rem .9rem;border-radius:999px;font-weight:800;margin-bottom:1rem}
+    .hero h1{font-size:clamp(2.15rem,4.5vw,3.65rem);line-height:1.08;margin:0 0 1rem;color:var(--blue-dark)}
+    .hero p{color:#314355;margin:0 0 1.1rem;font-size:1.08rem;line-height:1.65;max-width:62ch}
+    .proof-line{display:inline-block;background:linear-gradient(135deg,var(--blue-soft),#fff);border:1px solid var(--border);border-left:5px solid var(--blue);padding:.8rem 1rem;border-radius:12px;font-weight:800;color:var(--blue-dark);margin:0 0 1.2rem}
+    .hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem}
+    .trust-line{color:var(--muted);font-weight:700;font-size:.94rem}
 
-    .photo{
-      height:440px;
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      background:linear-gradient(135deg,#eef4ff,#ffffff);
-      display:grid;
-      place-items:center;
-      padding:.65rem;
-    }
-    .photo img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      object-position:center center;
-      border-radius:12px;
-      background:#eef4ff;
-    }
+    .hero-card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:1.25rem;box-shadow:var(--shadow)}
+    .logo-feature{background:#fff;border:1px solid var(--border);border-radius:18px;padding:1rem;display:grid;place-items:center;margin-bottom:1rem}
+    .logo-feature img{width:min(260px,100%);height:auto}
+    .photo{height:440px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(135deg,#eef4ff,#ffffff);display:grid;place-items:center;padding:.65rem}
+    .photo img{width:100%;height:100%;object-fit:contain;object-position:center center;border-radius:12px;background:#eef4ff}
+    .photo-caption{margin-top:1rem;background:linear-gradient(135deg,var(--blue-soft),#fff);border:1px solid var(--border);border-radius:16px;padding:1rem;color:#314355}
+    .photo-caption strong{color:var(--blue-dark)}
 
-    .section{padding:3.5rem 0}
+    .section{padding:4rem 0}
+    .section.alt{background:#f7faff}
     .center{text-align:center}
+    .section-title{max-width:760px;margin:0 auto 2rem;text-align:center}
+    .section-title h2{font-size:clamp(1.8rem,3vw,2.45rem);line-height:1.15;color:var(--blue-dark);margin:0 0 .75rem}
+    .section-title h2::after{content:"";display:block;width:78px;height:5px;background:linear-gradient(90deg,var(--blue),var(--red));border-radius:99px;margin:.85rem auto 0}
+    .section-title p{color:var(--muted);margin:0 auto;max-width:64ch}
 
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    .card{padding:1.2rem;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);background:#fff}
-    .card strong{display:block;color:var(--blue-dark);margin-bottom:.35rem;font-size:1.05rem}
-    .testimonial{max-width:720px;margin:1.5rem auto 0;padding:1.25rem;border-radius:var(--radius);background:#f6f9ff;border:1px solid var(--blue-light);color:#314355;font-style:italic}
+    .cards.four{grid-template-columns:repeat(4,1fr)}
+    .card{padding:1.35rem;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);background:#fff;text-align:left}
+    .card strong{display:block;color:var(--blue-dark);margin-bottom:.35rem;font-size:1.08rem}
+    .card p{margin:.45rem 0 0;color:var(--muted)}
+    .card .mini-cta{display:inline-block;margin-top:1rem;color:var(--red);font-weight:800}
+
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:1.5rem;align-items:stretch}
+    .about-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem}
+    .about-box h2{color:var(--blue-dark);margin-top:0}
+    .check-list{list-style:none;padding:0;margin:1.25rem 0 0;display:grid;gap:.75rem}
+    .check-list li{background:#f8fbff;border:1px solid var(--border);border-left:5px solid var(--blue);border-radius:12px;padding:.85rem 1rem;font-weight:700}
+
+    .highlight-panel{background:linear-gradient(135deg,var(--blue-soft),#fff);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;height:100%}
+    .highlight-panel h3{margin-top:0;color:var(--blue-dark)}
+    .highlight-panel p{color:#314355}
 
     .cta{
       background:
         radial-gradient(circle at 85% 10%, rgba(255,255,255,.12), transparent 28%),
         linear-gradient(135deg,var(--blue),var(--blue-dark));
       color:#fff;
-      padding:2rem;
-      border-radius:20px;
+      padding:2.25rem;
+      border-radius:24px;
       text-align:center;
+      box-shadow:var(--shadow);
       border-bottom:4px solid rgba(255,255,255,.2);
     }
+    .cta h2{margin:0 0 .5rem;font-size:clamp(1.8rem,3vw,2.5rem)}
+    .cta p{margin:.3rem auto 1.2rem;color:rgba(255,255,255,.92);max-width:680px}
 
-    form{display:grid;gap:.8rem;margin:1rem auto 0;max-width:520px}
-    input,select,textarea{padding:.7rem;border-radius:10px;border:1px solid var(--border)}
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;align-items:start}
+    form{display:grid;gap:.9rem;margin:1rem auto 0}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+    label{display:block;font-weight:800;color:var(--blue-dark);margin-bottom:.3rem}
+    input,select,textarea{width:100%;padding:.8rem;border-radius:10px;border:1px solid var(--border);font:inherit;background:#fbfdff}
+    input:focus,select:focus,textarea:focus{outline:3px solid rgba(215,25,63,.14);border-color:var(--red)}
+    textarea{min-height:120px;resize:vertical}
+    .form-note{font-size:.9rem;color:var(--muted);margin:0}
+    .contact-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem}
 
-    footer{background:var(--blue-dark);color:#fff;padding:1.5rem;text-align:center;margin-top:2rem}
+    .testimonial{max-width:760px;margin:1.5rem auto 0;padding:1.25rem;border-radius:var(--radius);background:#f6f9ff;border:1px solid var(--blue-light);color:#314355;font-style:italic;text-align:center}
+    .service-note{margin-top:1rem;padding:1rem;border-radius:var(--radius);background:var(--red-soft);border:1px solid #ffd1dc;color:var(--blue-dark);font-weight:700}
 
-    @media(max-width:800px){.hero-grid,.cards{grid-template-columns:1fr}}
+    footer{background:var(--blue-dark);color:#fff;padding:2rem 0;text-align:center;margin-top:2rem}
+    footer p{margin:.25rem 0;color:rgba(255,255,255,.9)}
+
+    .mobile-sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.98);border-top:1px solid var(--border);box-shadow:0 -10px 24px rgba(0,0,0,.08);padding:.7rem;display:none;z-index:20}
+    .mobile-sticky .inner{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;width:min(var(--max),calc(100% - 1rem));margin:auto}
+
+    @media(max-width:900px){
+      .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+      .cards,.cards.four{grid-template-columns:1fr 1fr}
+      .nav{align-items:flex-start;flex-direction:column}
+      .nav-links{justify-content:flex-start}
+    }
+    @media(max-width:640px){
+      body{padding-bottom:86px}
+      .cards,.cards.four,.form-row{grid-template-columns:1fr}
+      .hero{padding:3rem 0}
+      .section{padding:3rem 0}
+      .photo{height:380px}
+      .mobile-sticky{display:block}
+      .nav-links a:not(.btn){display:none}
+      .logo img{width:72px}
+    }
   </style>
 </head>
 <body>
 
-<div class="topbar">Call or Text: (510) 456-8015</div>
+<div class="topbar">
+  Call or Text Miguel: <a href="tel:15104568015">(510) 456-8015</a> &nbsp; • &nbsp; Office: <a href="tel:13606487079">(360) 648-7079</a>
+</div>
 
 <header>
   <div class="container nav">
     <div class="logo">
-      <img src="images/Farmers_Logo.png" alt="logo">
-      <strong>Miguel Mendoza Insurance</strong>
+      <img src="images/Farmers_Logo.png" alt="Farmers Insurance logo" loading="eager" decoding="async" width="160" height="88">
+      <div class="brand">
+        <strong>Miguel Mendoza Insurance</strong>
+        <span>Local. Reliable. Here When You Need Me.</span>
+      </div>
     </div>
-    <a href="#contact" class="btn btn-quote">Start My Free Quote</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#states">States</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn btn-quote">Start My Free Quote</a>
+    </nav>
   </div>
 </header>
 
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1>Get the Right Insurance Coverage — Without Overpaying or Guessing</h1>
-      <p>Local insurance help from someone you can actually call or text. I help clients compare coverage options for auto, home, life, and business insurance across California, Oregon, and Washington.</p>
-      <div class="proof-line">Most quotes delivered same day. No pressure — just clear guidance.</div>
-      <div class="hero-actions">
-        <a href="tel:15104568015" class="btn btn-primary">Call Miguel Now</a>
-        <a href="sms:15104568015" class="btn btn-primary">Text Me</a>
-        <a href="#contact" class="btn btn-quote">Start My Free Quote</a>
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Your local Farmers Insurance agent</span>
+        <h1>Get the Right Insurance Coverage — Without Overpaying or Guessing</h1>
+        <p>Local insurance help from someone you can actually call or text. I help clients compare coverage options for auto, home, life, and business insurance across California, Oregon, and Washington.</p>
+        <div class="proof-line">Most quotes delivered same day. No pressure — just clear guidance.</div>
+        <div class="hero-actions">
+          <a href="tel:15104568015" class="btn btn-primary">Call Miguel Now</a>
+          <a href="sms:15104568015" class="btn btn-secondary">Text Me</a>
+          <a href="#contact" class="btn btn-quote">Start My Free Quote</a>
+        </div>
+        <div class="trust-line">Licensed Agent #4526994 • Daniel Dodge Insurance Agency • CA, OR, WA</div>
+      </div>
+
+      <div class="hero-card">
+        <div class="logo-feature">
+          <img src="images/Farmers_Logo.png" alt="Farmers Insurance logo" loading="eager" decoding="async" width="280" height="154">
+        </div>
+        <div class="photo">
+          <img src="images/miguel-headshot.jpg" alt="Miguel Mendoza headshot" loading="lazy" decoding="async" width="600" height="600">
+        </div>
+        <div class="photo-caption">
+          <strong>When you call or text, you’re talking to me.</strong><br>
+          No call centers. No pressure. Just clear answers and helpful guidance.
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="photo">
-      <img src="images/miguel-headshot.jpg" alt="Miguel headshot" loading="lazy">
+  <section id="about" class="section">
+    <div class="container about-grid">
+      <div class="highlight-panel">
+        <h3>Insurance should feel simple.</h3>
+        <p>I work directly with my clients to make insurance easier to understand, easier to compare, and easier to act on.</p>
+        <p>Whether you are buying a car, protecting your home, planning for your family, or covering your business, my goal is to help you feel confident before you make a decision.</p>
+        <div class="service-note">Prefer texting? Send me a quick message and I’ll help you get started.</div>
+      </div>
+      <div class="about-box">
+        <h2>Hi, I’m Miguel Mendoza</h2>
+        <p>I’m an insurance agent with Daniel Dodge Insurance Agency, helping clients across California, Oregon, and Washington find coverage that fits their needs.</p>
+        <p>I believe good insurance service is personal: clear communication, quick follow-up, and guidance that does not feel pushy.</p>
+        <ul class="check-list">
+          <li>Fast, same-day quotes when possible</li>
+          <li>Direct access by call, text, or email</li>
+          <li>Personalized coverage, not one-size-fits-all plans</li>
+          <li>Licensed in California, Oregon, and Washington</li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section center">
-  <div class="container">
-    <h2>Why Work With Me</h2>
-    <div class="cards">
-      <div class="card"><strong>Fast Quotes</strong>Most quote requests are handled the same day when the needed details are available.</div>
-      <div class="card"><strong>Direct Access</strong>Call or text me directly — you are not stuck waiting on a call center.</div>
-      <div class="card"><strong>Clear Guidance</strong>No pressure, no confusing jargon, and no one-size-fits-all recommendations.</div>
+  <section class="section alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Work With Me</h2>
+        <p>I keep things simple, responsive, and personal so you can get the coverage you need without wasting time.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><strong>Fast Quotes</strong><p>Most quote requests are handled the same day when the needed details are available.</p></div>
+        <div class="card"><strong>Direct Access</strong><p>Call or text me directly — you are not stuck waiting on a call center.</p></div>
+        <div class="card"><strong>Clear Guidance</strong><p>No pressure, no confusing jargon, and no one-size-fits-all recommendations.</p></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section center">
-  <div class="container">
-    <h2>What I Help With</h2>
-    <div class="cards">
-      <div class="card"><strong>Auto Insurance</strong>Coverage for your daily driver, family vehicles, or new car purchase.</div>
-      <div class="card"><strong>Home Insurance</strong>Protection for your home, belongings, and peace of mind.</div>
-      <div class="card"><strong>Life & Business</strong>Help protecting your family, income, business, and future.</div>
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>What I Help With</h2>
+        <p>Simple, reliable insurance solutions designed around your life, property, and goals.</p>
+      </div>
+      <div class="cards four">
+        <div class="card"><strong>Auto Insurance</strong><p>Coverage for your daily driver, family vehicles, or new car purchase.</p><a class="mini-cta" href="#contact">Get Auto Quote →</a></div>
+        <div class="card"><strong>Home Insurance</strong><p>Protection for your home, belongings, and peace of mind.</p><a class="mini-cta" href="#contact">Get Home Quote →</a></div>
+        <div class="card"><strong>Life Insurance</strong><p>Help protect your loved ones and plan for the future.</p><a class="mini-cta" href="#contact">Get Life Quote →</a></div>
+        <div class="card"><strong>Business Insurance</strong><p>Help protecting your business, income, operations, and future.</p><a class="mini-cta" href="#contact">Get Business Quote →</a></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container">
-    <div class="cta">
-      <h2>Need a Quote? I’ve Got You.</h2>
-      <p>Get your quote today and make sure you’re not overpaying or missing important coverage.</p>
-      <a href="tel:15104568015" class="btn btn-quote">Call Miguel Now</a>
+  <section class="section alt">
+    <div class="container">
+      <div class="cta">
+        <h2>Need a Quote? I’ve Got You.</h2>
+        <p>Get your quote today and make sure you are not overpaying or missing important coverage.</p>
+        <div class="hero-actions" style="justify-content:center;margin-bottom:0">
+          <a href="tel:15104568015" class="btn btn-quote">Call Miguel Now</a>
+          <a href="sms:15104568015" class="btn btn-secondary">Text Miguel</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contact" class="section">
-  <div class="container center">
-    <h2>Start Your Free Quote</h2>
-    <p>Takes less than 60 seconds. I’ll review your request and follow up with clear next steps.</p>
+  <section id="states" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Serving Clients Across</h2>
+        <p>Licensed to help clients with insurance needs in the following states.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><strong>California</strong><p>Helping individuals, families, and business owners protect what matters most.</p></div>
+        <div class="card"><strong>Oregon</strong><p>Simple guidance and responsive support for your insurance needs.</p></div>
+        <div class="card"><strong>Washington</strong><p>Reliable coverage options backed by personal service and clear communication.</p></div>
+      </div>
+    </div>
+  </section>
 
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <input name="name" placeholder="Full Name" required>
-      <input name="phone" placeholder="Phone" required>
-      <select name="type" required>
-        <option value="">Insurance Type</option>
-        <option>Auto</option>
-        <option>Home</option>
-        <option>Life</option>
-        <option>Business</option>
-        <option>Bundle / Multiple Policies</option>
-      </select>
-      <input name="state" placeholder="State: CA, OR, or WA" required>
-      <button class="btn btn-quote">Send My Quote Request</button>
-    </form>
+  <section id="faq" class="section alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>Quick Answers</h2>
+        <p>Just enough information to help you feel confident taking the next step.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><strong>How do I get a quote?</strong><p>Call, text, or submit the quote form below. I’ll follow up with clear next steps.</p></div>
+        <div class="card"><strong>Can I text instead of calling?</strong><p>Yes. Texting is one of the easiest ways to get started.</p></div>
+        <div class="card"><strong>What states are you licensed in?</strong><p>I’m licensed in California, Oregon, and Washington.</p></div>
+      </div>
+      <div class="testimonial">“Miguel made everything easy, explained my options clearly, and helped me feel confident about my coverage.”</div>
+    </div>
+  </section>
 
-    <div class="testimonial">“Miguel made everything easy, explained my options clearly, and helped me feel confident about my coverage.”</div>
-  </div>
-</section>
+  <section id="contact" class="section">
+    <div class="container contact-grid">
+      <div class="contact-card">
+        <h2>Start Your Free Quote</h2>
+        <p>Takes less than 60 seconds. I’ll review your request and follow up with clear next steps.</p>
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-row">
+            <div>
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div>
+              <label for="state">State</label>
+              <select id="state" name="state" required>
+                <option value="">Select one</option>
+                <option>California</option>
+                <option>Oregon</option>
+                <option>Washington</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="type">Insurance Type</label>
+              <select id="type" name="insurance_type" required>
+                <option value="">Select one</option>
+                <option>Auto</option>
+                <option>Home</option>
+                <option>Life</option>
+                <option>Business</option>
+                <option>Bundle / Multiple Policies</option>
+                <option>Not Sure Yet</option>
+              </select>
+            </div>
+            <div>
+              <label for="contact-method">Preferred Contact</label>
+              <select id="contact-method" name="preferred_contact" required>
+                <option value="">Select one</option>
+                <option>Call</option>
+                <option>Text</option>
+                <option>Email</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="message">What can I help you with?</label>
+            <textarea id="message" name="message" placeholder="Tell me what you’re looking for, your timeline, or any questions you have."></textarea>
+          </div>
+          <input type="hidden" name="agent" value="Miguel Mendoza">
+          <input type="hidden" name="license_number" value="4526994">
+          <button class="btn btn-quote" type="submit">Send My Quote Request</button>
+          <p class="form-note">By submitting, you agree to be contacted by Miguel Mendoza regarding your insurance inquiry.</p>
+        </form>
+      </div>
+
+      <div class="contact-card">
+        <h2>Contact Miguel</h2>
+        <p>No pressure, no confusion — just clear answers and help finding coverage that fits.</p>
+        <ul class="check-list">
+          <li><strong>Personal:</strong> <a href="tel:15104568015">(510) 456-8015</a></li>
+          <li><strong>Office:</strong> <a href="tel:13606487079">(360) 648-7079</a></li>
+          <li><strong>Email:</strong> <a href="mailto:Miguel@dodgeagencyinc.com">Miguel@dodgeagencyinc.com</a></li>
+          <li><strong>License #:</strong> 4526994</li>
+          <li><strong>Agency:</strong> Daniel Dodge Insurance Agency</li>
+        </ul>
+        <div class="service-note">Form setup reminder: replace <strong>YOUR_FORM_ID</strong> with your real Formspree or hosting form endpoint.</div>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-  Miguel Mendoza Insurance • License #4526994 • CA, OR, WA • (510) 456-8015
+  <div class="container">
+    <p><strong>Miguel Mendoza Insurance</strong></p>
+    <p>Powered by Daniel Dodge Insurance Agency • License #4526994 • CA, OR, WA</p>
+    <p><a href="tel:15104568015">(510) 456-8015</a> • <a href="mailto:Miguel@dodgeagencyinc.com">Miguel@dodgeagencyinc.com</a></p>
+  </div>
 </footer>
+
+<div class="mobile-sticky">
+  <div class="inner">
+    <a class="btn btn-primary" href="tel:15104568015">Call</a>
+    <a class="btn btn-secondary" href="sms:15104568015">Text</a>
+    <a class="btn btn-quote" href="#contact">Quote</a>
+  </div>
+</div>
 
 </body>
 </html>
