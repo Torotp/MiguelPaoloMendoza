@@ -212,17 +212,19 @@
       height: auto;
     }
 
-    .photo-placeholder {
+    .photo-real {
       height: 300px;
       border-radius: 18px;
-      border: 2px dashed var(--farmers-blue-light);
-      background: linear-gradient(135deg, #f7fbff, #eef3ff);
-      display: grid;
-      place-items: center;
-      text-align: center;
-      color: var(--gray-500);
-      font-weight: 700;
-      padding: 1.5rem;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow);
+    }
+
+    .photo-real img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .photo-caption {
@@ -512,9 +514,9 @@
           <div class="logo-feature">
             <img src="Farmers_Logo.png" alt="Farmers Insurance logo" />
           </div>
-          <div class="photo-placeholder">
-            <div>
-              <div style="font-size: 1.15rem; color: var(--farmers-blue-dark); margin-bottom: 0.5rem;">Photo Placeholder</div>
+          <div class="photo-real">
+            <img src="miguel-headshot.jpg" alt="Miguel Mendoza headshot" loading="lazy" decoding="async" width="600" height="600" />
+          </div>
               <div>Add a friendly, professional photo of Miguel here</div>
             </div>
           </div>
