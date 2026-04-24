@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Miguel Mendoza Insurance | Farmers Insurance Agent</title>
-  <meta name="description" content="Local, reliable insurance help from Miguel Mendoza. Fast quotes in CA, OR, WA." />
+  <meta name="description" content="Get local, reliable insurance help from Miguel Mendoza. Fast quotes for auto, home, life, and business insurance in CA, OR, and WA." />
   <style>
     :root {
       --blue:#0b3f93; --blue-dark:#072b66; --blue-light:#d9e5f7;
@@ -31,7 +31,8 @@
     .hero{padding:4rem 0;background:linear-gradient(135deg,#f6f9ff,#fff7f9)}
     .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
     .hero h1{font-size:clamp(2rem,4vw,3rem);margin:0 0 1rem;color:var(--blue-dark)}
-    .hero p{color:#314355;margin-bottom:1.5rem}
+    .hero p{color:#314355;margin-bottom:1.1rem;font-size:1.05rem;line-height:1.6}
+    .hero .proof-line{display:inline-block;background:#fff;border:1px solid var(--border);border-left:5px solid var(--red);padding:.75rem 1rem;border-radius:12px;font-weight:700;color:var(--blue-dark);margin-bottom:1.2rem}
     .hero-actions{display:flex;gap:.7rem;flex-wrap:wrap}
 
     .photo{height:360px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
@@ -41,11 +42,13 @@
     .center{text-align:center}
 
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    .card{padding:1.2rem;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card{padding:1.2rem;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);background:#fff}
+    .card strong{display:block;color:var(--blue-dark);margin-bottom:.35rem;font-size:1.05rem}
+    .testimonial{max-width:720px;margin:1.5rem auto 0;padding:1.25rem;border-radius:var(--radius);background:#fff7f9;border:1px solid #f5c7d0;color:#314355;font-style:italic}
 
     .cta{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;padding:2rem;border-radius:20px;text-align:center}
 
-    form{display:grid;gap:.8rem;margin-top:1rem}
+    form{display:grid;gap:.8rem;margin:1rem auto 0;max-width:520px}
     input,select,textarea{padding:.7rem;border-radius:10px;border:1px solid var(--border)}
 
     footer{background:var(--blue-dark);color:#fff;padding:1.5rem;text-align:center;margin-top:2rem}
@@ -63,19 +66,20 @@
       <img src="images/Farmers_Logo.png" alt="logo">
       <strong>Miguel Mendoza Insurance</strong>
     </div>
-    <a href="#contact" class="btn btn-quote">Get My Free Quote</a>
+    <a href="#contact" class="btn btn-quote">Start My Free Quote</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <h1>Get the Right Insurance Coverage — Without Overpaying</h1>
-      <p>Local insurance help you can trust. Serving California, Oregon, and Washington.</p>
-      <p><strong>Most quotes delivered same day.</strong></p>
+      <h1>Get the Right Insurance Coverage — Without Overpaying or Guessing</h1>
+      <p>Local insurance help from someone you can actually call or text. I help clients compare coverage options for auto, home, life, and business insurance across California, Oregon, and Washington.</p>
+      <div class="proof-line">Most quotes delivered same day. No pressure — just clear guidance.</div>
       <div class="hero-actions">
-        <a href="tel:15104568015" class="btn btn-primary">Call Now</a>
-        <a href="#contact" class="btn btn-quote">Start My Quote</a>
+        <a href="tel:15104568015" class="btn btn-primary">Call Miguel Now</a>
+        <a href="sms:15104568015" class="btn btn-primary">Text Me</a>
+        <a href="#contact" class="btn btn-quote">Start My Free Quote</a>
       </div>
     </div>
 
@@ -89,9 +93,9 @@
   <div class="container">
     <h2>Why Work With Me</h2>
     <div class="cards">
-      <div class="card">Fast, same-day quotes</div>
-      <div class="card">Call or text me directly</div>
-      <div class="card">No pressure, just clear help</div>
+      <div class="card"><strong>Fast Quotes</strong>Most quote requests are handled the same day when the needed details are available.</div>
+      <div class="card"><strong>Direct Access</strong>Call or text me directly — you are not stuck waiting on a call center.</div>
+      <div class="card"><strong>Clear Guidance</strong>No pressure, no confusing jargon, and no one-size-fits-all recommendations.</div>
     </div>
   </div>
 </section>
@@ -100,9 +104,9 @@
   <div class="container">
     <h2>What I Help With</h2>
     <div class="cards">
-      <div class="card">Auto Insurance</div>
-      <div class="card">Home Insurance</div>
-      <div class="card">Life & Business Insurance</div>
+      <div class="card"><strong>Auto Insurance</strong>Coverage for your daily driver, family vehicles, or new car purchase.</div>
+      <div class="card"><strong>Home Insurance</strong>Protection for your home, belongings, and peace of mind.</div>
+      <div class="card"><strong>Life & Business</strong>Help protecting your family, income, business, and future.</div>
     </div>
   </div>
 </section>
@@ -111,16 +115,16 @@
   <div class="container">
     <div class="cta">
       <h2>Need a Quote? I’ve Got You.</h2>
-      <p>Call or text me anytime — I respond quickly.</p>
-      <a href="tel:15104568015" class="btn btn-quote">Call Me Now</a>
+      <p>Get your quote today and make sure you’re not overpaying or missing important coverage.</p>
+      <a href="tel:15104568015" class="btn btn-quote">Call Miguel Now</a>
     </div>
   </div>
 </section>
 
 <section id="contact" class="section">
   <div class="container center">
-    <h2>Get Your Free Quote</h2>
-    <p>Takes less than 60 seconds</p>
+    <h2>Start Your Free Quote</h2>
+    <p>Takes less than 60 seconds. I’ll review your request and follow up with clear next steps.</p>
 
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <input name="name" placeholder="Full Name" required>
@@ -131,16 +135,18 @@
         <option>Home</option>
         <option>Life</option>
         <option>Business</option>
+        <option>Bundle / Multiple Policies</option>
       </select>
-      <button class="btn btn-quote">Submit Quote Request</button>
+      <input name="state" placeholder="State: CA, OR, or WA" required>
+      <button class="btn btn-quote">Send My Quote Request</button>
     </form>
 
-    <p style="margin-top:1rem;font-style:italic">“Miguel made everything easy and helped me save money.”</p>
+    <div class="testimonial">“Miguel made everything easy, explained my options clearly, and helped me feel confident about my coverage.”</div>
   </div>
 </section>
 
 <footer>
-  Miguel Mendoza Insurance • License #4526994
+  Miguel Mendoza Insurance • License #4526994 • CA, OR, WA • (510) 456-8015
 </footer>
 
 </body>
