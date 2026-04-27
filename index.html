@@ -53,11 +53,11 @@ img{max-width:100%;display:block}
 .topbar a{font-weight:800}
 
 header{position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:10}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.9rem 0}
-.logo{display:flex;align-items:center;gap:.75rem}
-.logo img{width:80px;height:auto;object-fit:contain}
-.brand strong{display:block;color:var(--blue-dark);line-height:1.1}
-.brand span{display:block;font-size:.9rem;color:var(--muted);margin-top:.15rem}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.5rem 0}
+.logo{display:flex;align-items:center;gap:.5rem}
+.logo img{width:60px;height:auto;object-fit:contain}
+.brand strong{display:block;color:var(--blue-dark);line-height:1.1;font-size:.95rem}
+.brand span{display:block;font-size:.8rem;color:var(--muted);margin-top:.15rem}
 .nav-links{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;justify-content:flex-end}
 .nav-links a{font-weight:700;color:var(--blue-dark)}
 
@@ -85,20 +85,20 @@ header{position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:bl
 
 .hero-card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:1.25rem;box-shadow:var(--shadow)}
 .logo-feature {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 10px;       
-  padding: 0.5rem 0.75rem;   
-  display: inline-flex;       
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
-  width: fit-content;      
-  margin-left: auto;
-  margin-right: auto;         
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:.4rem .6rem;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:1rem;
+  width:fit-content;
+  margin-left:auto;
+  margin-right:auto;
 }
-}
-.logo-feature img{width:min(100px,80%);height:auto}
+
+.logo-feature img{width:min(100px,100%);height:auto}
 
 .photo{height:440px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(135deg,#eef4ff,#ffffff);display:grid;place-items:center;padding:.65rem}
 .photo img{width:100%;height:100%;object-fit:contain;object-position:center center;border-radius:12px;background:#eef4ff}
@@ -190,15 +190,16 @@ header{position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:bl
 
 <header>
   <div class="container nav">
-<div class="logo-feature">
-  <a href="https://agents.farmers.com/ca/fremont/lin-zhao/" target="_blank" rel="noopener noreferrer">
-    <img src="images/Farmers_Logo.png" alt="Farmers Insurance logo" loading="eager" decoding="async" width="280" height="154">
-  </a>
-</div>
+    <div class="logo">
+      <a href="https://agents.farmers.com/ca/fremont/lin-zhao/" target="_blank" rel="noopener noreferrer">
+        <img src="images/Farmers_Logo.png" alt="Farmers Insurance logo" loading="eager" decoding="async" width="160" height="88">
+      </a>
+      <div class="brand">
         <strong>Miguel Mendoza Insurance</strong>
         <span>Local. Reliable. Here When You Need Me.</span>
       </div>
     </div>
+
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="#about">About</a>
       <a href="#services">Services</a>
